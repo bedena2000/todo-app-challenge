@@ -24,11 +24,12 @@ class TextField extends Component {
       dispatch(addTodoText(this.state.inputText));
       dispatch(addTodo(todoObject));
     }
-    
+
     this.setState({
       inputText: '',
     });
   }
+
   render() {
     return (
       <div className="flex h-[56px] justify-between mt-[18px] gap-[25px]">
@@ -41,6 +42,11 @@ class TextField extends Component {
               inputText: event.target.value,
             })
           }
+          onKeyDown={(event) => {
+            if (event.code === 'Enter') {
+              this.submitText();
+            }
+          }}
           className="
           border-[1px]
             border-[#BDBDBD]
