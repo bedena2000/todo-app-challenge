@@ -3,7 +3,7 @@
 
 <br>
 
-<div>LIVE DEMO: <a href="https://windbnb-challenge-bedena2000.netlify.app/" target="_blank">TodoApp Challenge</a> </div>
+<div>LIVE DEMO: <a href="https://todo-app-challenge-b.netlify.app/" target="_blank">TodoApp Challenge</a> </div>
 
 <h2>Used tools</h2>
 <a href="https://tailwindcss.com/">Tailwind CSS</a> <br />
