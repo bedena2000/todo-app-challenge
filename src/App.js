@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
 
+// Routers
+import { Routes, Route } from 'react-router-dom';
+
 // Components
 import Title from './component/Title/Title';
 import Navigation from './component/Navigation/Navigation';
-import TextField from './component/TextField/TextField';
+import TodoActive from './component/TodoPages/TodoActive';
+import TodoCompleted from './component/TodoPages/TodoCompleted';
 import TodoList from './component/TodoPages/TodoList';
 
 export default class App extends Component {
   render() {
     return (
-      <div className="max-w-[608px] mx-auto px-[15px]">
+      <div className="max-w-[608px] mx-auto px-[15px] pt-[32px] pb-[32px]">
         <Title />
         <Navigation />
-        <TextField />
-        <TodoList />
+        <Routes>
+          <Route path='/' element={<TodoList />} />
+          <Route path='/todoActive' element={<TodoActive />} />
+          <Route path='/todoComplete' element={<TodoCompleted />} />
+        </Routes>
       </div>
     );
   }

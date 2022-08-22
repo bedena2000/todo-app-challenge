@@ -1,9 +1,34 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class TextField extends Component {
-  state = {
-    inputText: '',
-  };
+// Actions
+import { addTodoText } from '../../redux/actions/actions';
+import { addTodo } from '../../redux/actions/actions';
+
+class TextField extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputText: '',
+    };
+    this.submitText = this.submitText.bind(this);
+  }
+  submitText() {
+    const todoObject = {
+      id: Math.random(),
+      text: this.state.inputText,
+      completed: false,
+    };
+    const { dispatch } = this.props;
+    if (this.state.inputText) {
+      dispatch(addTodoText(this.state.inputText));
+      dispatch(addTodo(todoObject));
+    }
+    
+    this.setState({
+      inputText: '',
+    });
+  }
   render() {
     return (
       <div className="flex h-[56px] justify-between mt-[18px] gap-[25px]">
@@ -32,10 +57,20 @@ export default class TextField extends Component {
             max-w-[476px]
           "
         />
-        <button className="text-white text-[14px] leading-[17.07px] font-montserat font-semibold px-[40px] bg-[#2F80ED] rounded-[12px]">
+        <button
+          onClick={this.submitText}
+          className="text-white text-[14px] leading-[17.07px] font-montserat font-semibold px-[40px] bg-[#2F80ED] rounded-[12px]">
           Add
         </button>
       </div>
     );
   }
 }
+
+function getStateToTextField(state) {
+  return {
+    inputText: state.todoText,
+  };
+}
+
+export default connect(getStateToTextField)(TextField);
