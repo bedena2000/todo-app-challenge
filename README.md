@@ -1,5 +1,5 @@
 <h1>WindBNB Challenge</h1>
-<img src="./src/assets/img/todo-app-website" alt="website logo"/>
+<img src="./src/assets/img/todo-app-website.png" alt="website logo"/>
 
 <br>
 
